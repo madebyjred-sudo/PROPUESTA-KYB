@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Figtree', sans-serif;
+
+  /* Adding custom letter spacing utilities */
+  --tracking-wide: 0.1em;
+  --tracking-wider: 0.2em;
+  --tracking-widest: 0.3em;
+  --tracking-ultra: 0.5em;
+  /* This gives that 500 equivalent */
+
+  /* Colors based on label */
+  --color-lunar-bg: #252525;
+  --color-lunar-cyan: #0077B6;
+  --color-lunar-purple: #963484;
+  --color-lunar-text: #FCF8FF;
+
+  /* Shimmer Button Animations */
+  --animate-shimmer-slide: shimmer-slide var(--speed) ease-in-out infinite alternate;
+  --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear;
+
+  @keyframes spin-around {
+    0% {
+      transform: translateZ(0) rotate(0);
+    }
+
+    15%,
+    35% {
+      transform: translateZ(0) rotate(90deg);
+    }
+
+    65%,
+    85% {
+      transform: translateZ(0) rotate(270deg);
+    }
+
+    100% {
+      transform: translateZ(0) rotate(360deg);
+    }
+  }
+
+  @keyframes shimmer-slide {
+    to {
+      transform: translate(calc(100cqw - 100%), 0);
+    }
+  }
+}
+
+@layer base {
+  body {
+    background-color: var(--color-lunar-bg);
+    color: var(--color-lunar-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+}
